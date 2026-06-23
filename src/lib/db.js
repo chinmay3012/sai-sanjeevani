@@ -1,88 +1,82 @@
-import fs from 'fs';
-import path from 'path';
-import crypto from 'crypto';
+// Client-side Database Helper using LocalStorage
+const STORAGE_KEY = 'sanjeevani_db';
 
-const DB_DIR = path.join(process.cwd(), 'data');
-const DB_FILE = path.join(DB_DIR, 'db.json');
-
-// Ensure DB directory and file exist
-function initDb() {
-  if (!fs.existsSync(DB_DIR)) {
-    fs.mkdirSync(DB_DIR, { recursive: true });
+const defaultSeedData = {
+  appointments: [
+    {
+      id: '1',
+      patientName: 'Ramesh Kumar',
+      phone: '9876543210',
+      email: 'ramesh@example.com',
+      date: '2026-06-25',
+      timeSlot: '10:30 AM',
+      department: 'Orthopedics',
+      doctor: 'Dr. Anil Verma',
+      status: 'Confirmed',
+      createdAt: new Date(Date.now() - 3600000 * 2).toISOString()
+    },
+    {
+      id: '2',
+      patientName: 'Sita Devi',
+      phone: '8765432109',
+      email: 'sita@example.com',
+      date: '2026-06-26',
+      timeSlot: '02:00 PM',
+      department: 'Maternity',
+      doctor: 'Dr. Priya Sharma',
+      status: 'Pending',
+      createdAt: new Date(Date.now() - 3600000).toISOString()
+    }
+  ],
+  messages: [
+    {
+      id: '1',
+      name: 'Amit Sharma',
+      phone: '7654321098',
+      email: 'amit@example.com',
+      message: 'Do you accept Ayushman Bharat card for joint replacement? What documents are required?',
+      status: 'Unread',
+      createdAt: new Date(Date.now() - 3600000 * 4).toISOString()
+    }
+  ],
+  admin: {
+    username: 'admin',
+    password: 'sanjeevani123'
   }
+};
 
-  if (!fs.existsSync(DB_FILE)) {
-    // Default password: sanjeevani123
-    const passwordHash = crypto.createHash('sha256').update('sanjeevani123').digest('hex');
-    
-    const seedData = {
-      appointments: [
-        {
-          id: '1',
-          patientName: 'Ramesh Kumar',
-          phone: '9876543210',
-          email: 'ramesh@example.com',
-          date: '2026-06-25',
-          timeSlot: '10:30 AM',
-          department: 'Orthopedics',
-          doctor: 'Dr. Anil Verma',
-          status: 'Confirmed',
-          createdAt: new Date(Date.now() - 3600000 * 2).toISOString() // 2 hours ago
-        },
-        {
-          id: '2',
-          patientName: 'Sita Devi',
-          phone: '8765432109',
-          email: 'sita@example.com',
-          date: '2026-06-26',
-          timeSlot: '02:00 PM',
-          department: 'Maternity',
-          doctor: 'Dr. Priya Sharma',
-          status: 'Pending',
-          createdAt: new Date(Date.now() - 3600000).toISOString() // 1 hour ago
-        }
-      ],
-      messages: [
-        {
-          id: '1',
-          name: 'Amit Sharma',
-          phone: '7654321098',
-          email: 'amit@example.com',
-          message: 'Do you accept Ayushman Bharat card for joint replacement? What documents are required?',
-          status: 'Unread',
-          createdAt: new Date(Date.now() - 3600000 * 4).toISOString() // 4 hours ago
-        }
-      ],
-      admin: {
-        username: 'admin',
-        passwordHash: passwordHash
-      }
-    };
-    
-    fs.writeFileSync(DB_FILE, JSON.stringify(seedData, null, 2), 'utf-8');
-  }
-}
+// Helper to check if browser environment is ready
+const isClient = () => typeof window !== 'undefined';
 
-// Read database
 function readDb() {
-  initDb();
+  if (!isClient()) {
+    return defaultSeedData;
+  }
+  
   try {
-    const data = fs.readFileSync(DB_FILE, 'utf-8');
+    const data = localStorage.getItem(STORAGE_KEY);
+    if (!data) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultSeedData));
+      return defaultSeedData;
+    }
     return JSON.parse(data);
   } catch (error) {
-    console.error('Error reading DB file, returning empty structure:', error);
-    return { appointments: [], messages: [], admin: {} };
+    console.error('Error reading localStorage:', error);
+    return defaultSeedData;
   }
 }
 
-// Write database
 function writeDb(data) {
-  initDb();
-  fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2), 'utf-8');
+  if (!isClient()) return;
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  } catch (error) {
+    console.error('Error writing localStorage:', error);
+  }
 }
 
 export const db = {
-  // Appointments CRUD
+  // Appointments
   getAppointments: () => {
     return readDb().appointments || [];
   },
@@ -90,7 +84,7 @@ export const db = {
   addAppointment: (appointment) => {
     const currentDb = readDb();
     const newAppointment = {
-      id: crypto.randomUUID(),
+      id: Math.random().toString(36).substring(2, 11),
       ...appointment,
       status: 'Pending',
       createdAt: new Date().toISOString()
@@ -121,7 +115,7 @@ export const db = {
     return updated;
   },
 
-  // Contact Messages CRUD
+  // Contact Messages
   getMessages: () => {
     return readDb().messages || [];
   },
@@ -129,7 +123,7 @@ export const db = {
   addMessage: (msg) => {
     const currentDb = readDb();
     const newMessage = {
-      id: crypto.randomUUID(),
+      id: Math.random().toString(36).substring(2, 11),
       ...msg,
       status: 'Unread',
       createdAt: new Date().toISOString()
@@ -163,10 +157,7 @@ export const db = {
   // Admin Auth
   validateAdmin: (username, password) => {
     const currentDb = readDb();
-    if (!currentDb.admin || currentDb.admin.username !== username) {
-      return false;
-    }
-    const hash = crypto.createHash('sha256').update(password).digest('hex');
-    return hash === currentDb.admin.passwordHash;
+    const adminUser = currentDb.admin || defaultSeedData.admin;
+    return adminUser.username === username && adminUser.password === password;
   }
 };

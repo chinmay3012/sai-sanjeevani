@@ -3,6 +3,7 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import { db } from '@/lib/db';
 
 const departments = [
   'General Medicine',
@@ -88,7 +89,7 @@ function BookingForm() {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setStatus({ submitting: true, success: false, error: null, bookedData: null });
 
@@ -98,36 +99,26 @@ function BookingForm() {
     }
 
     try {
-      const response = await fetch('/api/appointments', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+      const appointment = db.addAppointment(formData);
+      setStatus({
+        submitting: false,
+        success: true,
+        error: null,
+        bookedData: appointment
       });
-      const data = await response.json();
-
-      if (response.ok) {
-        setStatus({
-          submitting: false,
-          success: true,
-          error: null,
-          bookedData: data.appointment
-        });
-        // Clear form
-        setFormData({
-          patientName: '',
-          phone: '',
-          email: '',
-          date: '',
-          timeSlot: timeSlots[1],
-          department: departments[0],
-          doctor: doctors[3].name
-        });
-      } else {
-        setStatus({ submitting: false, success: false, error: data.error || 'Failed to schedule appointment.', bookedData: null });
-      }
+      // Clear form
+      setFormData({
+        patientName: '',
+        phone: '',
+        email: '',
+        date: '',
+        timeSlot: timeSlots[1],
+        department: departments[0],
+        doctor: doctors[3].name
+      });
     } catch (err) {
       console.error('Booking submit error:', err);
-      setStatus({ submitting: false, success: false, error: 'Connection failed. Please check network and try again.', bookedData: null });
+      setStatus({ submitting: false, success: false, error: 'Failed to schedule appointment.', bookedData: null });
     }
   };
 

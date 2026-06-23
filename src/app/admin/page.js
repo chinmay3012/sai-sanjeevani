@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { db } from '@/lib/db';
 
 export default function AdminDashboard() {
   const [auth, setAuth] = useState({
@@ -27,45 +28,43 @@ export default function AdminDashboard() {
     checkLoginStatus();
   }, []);
 
-  const checkLoginStatus = async () => {
-    try {
-      const response = await fetch('/api/admin/login');
-      const resData = await response.json();
-      if (resData.authenticated) {
+  const checkLoginStatus = () => {
+    if (typeof window !== 'undefined') {
+      const isLogged = sessionStorage.getItem('admin_logged_in') === 'true';
+      if (isLogged) {
         setAuth(prev => ({ ...prev, checked: true, loggedIn: true }));
         fetchDashboardData();
       } else {
         setAuth(prev => ({ ...prev, checked: true, loggedIn: false }));
       }
-    } catch (err) {
-      console.error('Failed to verify login status:', err);
+    } else {
       setAuth(prev => ({ ...prev, checked: true, loggedIn: false }));
     }
   };
 
-  const fetchDashboardData = async () => {
+  const fetchDashboardData = () => {
     setData(prev => ({ ...prev, loading: true, error: null }));
     try {
-      const response = await fetch('/api/admin/appointments');
-      if (response.ok) {
-        const resData = await response.json();
-        setData({
-          appointments: resData.appointments || [],
-          messages: resData.messages || [],
-          loading: false,
-          error: null
-        });
-      } else {
-        const errorData = await response.json();
-        setData(prev => ({ ...prev, loading: false, error: errorData.error || 'Failed to fetch data.' }));
-      }
+      const appointments = db.getAppointments();
+      const messages = db.getMessages();
+      
+      // Sort by date/createdAt descending
+      appointments.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      messages.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+      setData({
+        appointments: appointments || [],
+        messages: messages || [],
+        loading: false,
+        error: null
+      });
     } catch (err) {
       console.error('Error fetching dashboard data:', err);
-      setData(prev => ({ ...prev, loading: false, error: 'Network communication failed.' }));
+      setData(prev => ({ ...prev, loading: false, error: 'Failed to retrieve stored records.' }));
     }
   };
 
-  const handleLoginSubmit = async (e) => {
+  const handleLoginSubmit = (e) => {
     e.preventDefault();
     setAuth(prev => ({ ...prev, error: null }));
 
@@ -75,19 +74,16 @@ export default function AdminDashboard() {
     }
 
     try {
-      const response = await fetch('/api/admin/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username: auth.username, password: auth.password })
-      });
+      const isValid = db.validateAdmin(auth.username, auth.password);
       
-      const resData = await response.json();
-      
-      if (response.ok) {
+      if (isValid) {
+        if (typeof window !== 'undefined') {
+          sessionStorage.setItem('admin_logged_in', 'true');
+        }
         setAuth(prev => ({ ...prev, loggedIn: true, password: '' }));
         fetchDashboardData();
       } else {
-        setAuth(prev => ({ ...prev, error: resData.error || 'Login failed.' }));
+        setAuth(prev => ({ ...prev, error: 'Invalid username or password.' }));
       }
     } catch (err) {
       console.error('Login error:', err);
@@ -95,46 +91,41 @@ export default function AdminDashboard() {
     }
   };
 
-  const handleLogout = async () => {
-    try {
-      const response = await fetch('/api/admin/login', { method: 'DELETE' });
-      if (response.ok) {
-        setAuth(prev => ({ ...prev, loggedIn: false, username: '', password: '' }));
-        setData({ appointments: [], messages: [], loading: true, error: null });
-      }
-    } catch (err) {
-      console.error('Logout error:', err);
+  const handleLogout = () => {
+    if (typeof window !== 'undefined') {
+      sessionStorage.removeItem('admin_logged_in');
     }
+    setAuth(prev => ({ ...prev, loggedIn: false, username: '', password: '' }));
+    setData({ appointments: [], messages: [], loading: true, error: null });
   };
 
-  const updateItemStatus = async (type, id, newStatus) => {
+  const updateItemStatus = (type, id, newStatus) => {
     try {
-      const response = await fetch('/api/admin/appointments', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ type, id, status: newStatus })
-      });
-
-      if (response.ok) {
-        // Optimistic UI updates
-        if (type === 'appointment') {
+      let updated = null;
+      if (type === 'appointment') {
+        updated = db.updateAppointmentStatus(id, newStatus);
+        if (updated) {
           setData(prev => ({
             ...prev,
             appointments: prev.appointments.map(a => a.id === id ? { ...a, status: newStatus } : a)
           }));
-        } else if (type === 'message') {
+        }
+      } else if (type === 'message') {
+        updated = db.updateMessageStatus(id, newStatus);
+        if (updated) {
           setData(prev => ({
             ...prev,
             messages: prev.messages.map(m => m.id === id ? { ...m, status: newStatus } : m)
           }));
         }
-      } else {
-        const errorData = await response.json();
-        alert('Error updating status: ' + (errorData.error || 'Server error'));
+      }
+      
+      if (!updated) {
+        alert('Item not found or failed to update.');
       }
     } catch (err) {
       console.error('Error updating status:', err);
-      alert('Communication error updating status.');
+      alert('Error updating item status.');
     }
   };
 

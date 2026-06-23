@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { db } from '@/lib/db';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -23,7 +24,7 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setStatus({ submitting: true, success: false, error: null });
 
@@ -33,22 +34,12 @@ export default function Contact() {
     }
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-      const data = await response.json();
-
-      if (response.ok) {
-        setStatus({ submitting: false, success: true, error: null });
-        setFormData({ name: '', phone: '', email: '', message: '' });
-      } else {
-        setStatus({ submitting: false, success: false, error: data.error || 'Failed to submit message.' });
-      }
+      db.addMessage(formData);
+      setStatus({ submitting: false, success: true, error: null });
+      setFormData({ name: '', phone: '', email: '', message: '' });
     } catch (err) {
       console.error('Contact submit error:', err);
-      setStatus({ submitting: false, success: false, error: 'Something went wrong. Please try again.' });
+      setStatus({ submitting: false, success: false, error: 'Failed to submit message. Please try again.' });
     }
   };
 
