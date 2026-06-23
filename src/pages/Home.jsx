@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 export default function Home() {
   const specialties = [
     {
@@ -13,7 +11,7 @@ export default function Home() {
         'Equipped resuscitation bays & ambulance support'
       ],
       linkText: 'Book for 24x7',
-      linkPath: '/book?doctor=Any%20Available%20Specialist'
+      linkPath: '#book?doctor=Any%20Available%20Specialist'
     },
     {
       title: 'Intensive Care Unit (ICU)',
@@ -26,7 +24,7 @@ export default function Home() {
         'Dedicated isolation beds'
       ],
       linkText: 'Book for intensive',
-      linkPath: '/book?doctor=Dr.%20Rakesh%20Singh'
+      linkPath: '#book?doctor=Dr.%20Rakesh%20Singh'
     },
     {
       title: 'Maternity & High-Risk Pregnancy',
@@ -39,7 +37,7 @@ export default function Home() {
         'Gestational care & high-risk support'
       ],
       linkText: 'Book for maternity',
-      linkPath: '/book?doctor=Dr.%20Priya%20Sharma'
+      linkPath: '#book?doctor=Dr.%20Priya%20Sharma'
     },
     {
       title: 'Orthopedic Surgery',
@@ -52,7 +50,7 @@ export default function Home() {
         'Post-operative physical rehab'
       ],
       linkText: 'Book for orthopedic',
-      linkPath: '/book?doctor=Dr.%20Anil%20Verma'
+      linkPath: '#book?doctor=Dr.%20Anil%20Verma'
     },
     {
       title: 'High-Dependency Unit (HDU)',
@@ -65,7 +63,7 @@ export default function Home() {
         'Critical care nursing ratios'
       ],
       linkText: 'Book for HDU',
-      linkPath: '/book?doctor=Any%20Available%20Specialist'
+      linkPath: '#book?doctor=Any%20Available%20Specialist'
     },
     {
       title: 'General Medicine',
@@ -78,7 +76,7 @@ export default function Home() {
         'Inpatient infection care'
       ],
       linkText: 'Book for OPD',
-      linkPath: '/book?doctor=Dr.%20Rakesh%20Singh'
+      linkPath: '#book?doctor=Dr.%20Rakesh%20Singh'
     }
   ];
 
@@ -89,21 +87,18 @@ export default function Home() {
       degree: 'MBBS, MS (Ortho)',
       description: 'Specializes in joint replacement and trauma surgery, bringing extensive operative experience to bone reconstructions.',
       experience: '15+ years of experience',
-      linkPath: '/book?doctor=Dr.%20Anil%20Verma',
+      linkPath: '#book?doctor=Dr.%20Anil%20Verma',
       svgAvatar: (
         <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="100%" height="100%" fill="#e0e7ff"/>
           <circle cx="50" cy="38" r="16" fill="#fcd34d"/>
-          {/* Hair & glasses */}
           <path d="M34 38C34 22 66 22 66 38Z" fill="#475569"/>
           <rect x="42" y="34" width="6" height="4" rx="1" stroke="#1e293b" strokeWidth="1.5"/>
           <rect x="52" y="34" width="6" height="4" rx="1" stroke="#1e293b" strokeWidth="1.5"/>
           <line x1="48" y1="36" x2="52" y2="36" stroke="#1e293b" strokeWidth="1.5"/>
-          {/* Coat & shirt */}
           <path d="M25 90C25 72 35 68 44 68H56C65 68 75 72 75 90H25Z" fill="#ffffff"/>
           <path d="M44 68L50 82L56 68H44Z" fill="#cbd5e1"/>
           <path d="M48 68H52L51 75L49 75L48 68Z" fill="var(--secondary-color)"/>
-          {/* Stethoscope */}
           <path d="M38 68C38 76 62 76 62 68" stroke="#475569" strokeWidth="2" fill="none"/>
         </svg>
       )
@@ -114,15 +109,13 @@ export default function Home() {
       degree: 'MBBS, MD (OBG)',
       description: 'High-risk pregnancy and maternity specialist. Dedicated to safe maternal deliveries and diagnostic health diagnostics.',
       experience: '14+ years of experience',
-      linkPath: '/book?doctor=Dr.%20Priya%20Sharma',
+      linkPath: '#book?doctor=Dr.%20Priya%20Sharma',
       svgAvatar: (
         <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="100%" height="100%" fill="var(--primary-light)"/>
           <circle cx="50" cy="38" r="16" fill="#fed7aa"/>
-          {/* Hair */}
           <path d="M32 38C32 20 68 20 68 38C68 25 32 25 32 38Z" fill="#1e293b"/>
           <path d="M33 33C33 33 42 27 50 29C58 27 67 33 67 33" fill="none" stroke="#1e293b" strokeWidth="2"/>
-          {/* Scrubs & Coat */}
           <path d="M25 90C25 74 35 68 44 68H56C65 68 75 74 75 90H25Z" fill="var(--primary-color)"/>
           <path d="M25 90C25 78 28 74 35 74V90H25Z" fill="#ffffff" fillOpacity="0.85"/>
           <path d="M75 90C75 78 72 74 65 74V90H75Z" fill="#ffffff" fillOpacity="0.85"/>
@@ -136,18 +129,15 @@ export default function Home() {
       degree: 'MBBS, MD (Medicine), IDCCM',
       description: 'Leads the ICU & HDU teams round the clock. Expert in cardiovascular stabilization and acute respiratory diagnostics.',
       experience: '12+ years of experience',
-      linkPath: '/book?doctor=Dr.%20Rakesh%20Singh',
+      linkPath: '#book?doctor=Dr.%20Rakesh%20Singh',
       svgAvatar: (
         <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="100%" height="100%" fill="#e0f2fe"/>
           <circle cx="50" cy="38" r="16" fill="#ffedd5"/>
-          {/* Hair */}
           <path d="M34 38C34 22 66 22 66 38Z" fill="#1e293b"/>
-          {/* Coat & shirt */}
           <path d="M25 90C25 70 35 68 44 68H56C65 68 75 70 75 90H25Z" fill="#ffffff"/>
           <path d="M44 68L50 80L56 68H44Z" fill="#cbd5e1"/>
           <path d="M44 68H56L50 78L44 68Z" fill="#bae6fd"/>
-          {/* Stethoscope */}
           <path d="M38 68C38 76 62 76 62 68" stroke="#475569" strokeWidth="2" fill="none"/>
         </svg>
       )
@@ -171,7 +161,6 @@ export default function Home() {
 
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="hero-wrapper">
-            {/* Hero Left Content */}
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
               <div className="badge">
                 <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--primary-color)' }}></span>
@@ -189,9 +178,9 @@ export default function Home() {
               </p>
               
               <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '40px', width: '100%' }}>
-                <Link href="/book" className="btn btn-primary">
+                <a href="#book" className="btn btn-primary">
                   Book Appointment <span className="btn-icon-right">→</span>
-                </Link>
+                </a>
                 <a href="tel:8528422644" className="btn btn-secondary" style={{ backgroundColor: 'var(--secondary-color)' }}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ marginRight: '4px' }}>
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
@@ -218,9 +207,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Hero Right Visuals (Premium SVG Illustration) */}
             <div className="illustration-container">
-              {/* Floating Badge Top-Right */}
               <div className="floating-badge floating-badge-orange" style={{ top: '10px', right: '-10px' }}>
                 <span style={{ fontSize: '1.5rem' }}>⏰</span>
                 <div>
@@ -229,7 +216,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Floating Badge Bottom-Left */}
               <div className="floating-badge" style={{ bottom: '20px', left: '-20px', borderLeft: '4px solid var(--primary-color)' }}>
                 <span style={{ fontSize: '1.5rem' }}>🛡️</span>
                 <div>
@@ -238,13 +224,11 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* SVG Medical Team Vector Graphic */}
               <div className="illustration-box" style={{ overflow: 'hidden', padding: 0, borderRadius: 'var(--border-radius-lg)', background: 'linear-gradient(135deg, #eef6f3 0%, #dbeae5 100%)', display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '440px' }}>
                 <svg width="400" height="420" viewBox="0 0 400 420" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="200" cy="220" r="140" fill="#ffffff" fillOpacity="0.5"/>
                   <circle cx="200" cy="220" r="100" fill="#ffffff" fillOpacity="0.7"/>
 
-                  {/* Doctor 1 (Male - Right side) */}
                   <g id="doctor-male">
                     <path d="M230 420C230 350 250 320 290 320H350C390 320 410 350 410 420H230Z" fill="#ffffff"/>
                     <path d="M290 320L310 360L330 320H290Z" fill="#e2e8f0"/>
@@ -261,7 +245,6 @@ export default function Home() {
                     <circle cx="310" cy="342" r="8" fill="#94a3b8"/>
                   </g>
 
-                  {/* Doctor 2 (Female Maternity/OBGYN - Left side) */}
                   <g id="doctor-female">
                     <path d="M70 420C70 345 95 310 145 310H195C245 310 270 345 270 420H70Z" fill="var(--primary-color)"/>
                     <path d="M145 310L170 350L195 310H145Z" fill="#115e59"/>
@@ -282,7 +265,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. Departments & Specialties Section */}
+      {/* 2. Departments Section */}
       <section id="services" className="section-padding" style={{ backgroundColor: 'var(--bg-white)', borderTop: '1px solid rgba(13, 74, 59, 0.05)' }}>
         <div className="container">
           <div style={{ textAlign: 'left', marginBottom: '56px' }}>
@@ -298,19 +281,15 @@ export default function Home() {
           <div className="services-grid">
             {specialties.map((dept, index) => (
               <div key={index} className="dept-card">
-                {/* Visual Header */}
                 <div className="dept-image-wrap" style={{ background: dept.imageBg }}>
-                  {/* Circle Badge on top-left */}
                   <div className="dept-badge-circle" style={{ backgroundColor: dept.badgeBg }}>
                     {dept.icon}
                   </div>
-                  {/* Decorative ECG line */}
                   <svg width="100%" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.15 }}>
                     <path d="M0 100H100L110 80L120 120L130 60L140 140L150 100H300" stroke="#000000" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
                 
-                {/* Content */}
                 <div className="dept-card-content">
                   <h3>{dept.title}</h3>
                   <ul className="dept-features-list">
@@ -321,9 +300,9 @@ export default function Home() {
                     ))}
                   </ul>
                   
-                  <Link href={dept.linkPath} className="dept-action-link">
+                  <a href={dept.linkPath} className="dept-action-link">
                     {dept.linkText} <span>→</span>
-                  </Link>
+                  </a>
                 </div>
               </div>
             ))}
@@ -347,12 +326,10 @@ export default function Home() {
           <div className="grid-3" style={{ gap: '24px' }}>
             {doctorsList.map((doc, idx) => (
               <div key={idx} className="doctor-profile-card">
-                {/* Profile Photo Wrap */}
                 <div className="doctor-photo-wrap">
                   {doc.svgAvatar}
                 </div>
 
-                {/* Body Content */}
                 <div className="doctor-card-body">
                   <div className="doctor-badge-tag">
                     🧬 {doc.specialty}
@@ -371,9 +348,9 @@ export default function Home() {
                     👨‍⚕️ {doc.experience}
                   </div>
 
-                  <Link href={doc.linkPath} className="doctor-card-link">
+                  <a href={doc.linkPath} className="doctor-card-link">
                     Book consultation <span>→</span>
-                  </Link>
+                  </a>
                 </div>
               </div>
             ))}
@@ -400,13 +377,12 @@ export default function Home() {
                 <a href="tel:8528422644" className="btn btn-primary" style={{ backgroundColor: 'var(--bg-white)', color: 'var(--primary-color)' }}>
                   📞 Call 8528422644
                 </a>
-                <Link href="/book" className="btn btn-outline-white">
+                <a href="#book" className="btn btn-outline-white">
                   Book Appointment <span className="btn-icon-right">→</span>
-                </Link>
+                </a>
               </div>
             </div>
             
-            {/* Stat Cards Grid */}
             <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
               <div className="ayushman-four-grid">
                 <div className="ayushman-stat-card">
@@ -431,7 +407,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. How It Works Timeline (3 Simple Steps) */}
+      {/* 5. How It Works Timeline */}
       <section className="section-padding" style={{ backgroundColor: 'var(--bg-cream)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
@@ -467,7 +443,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. Where We Are Section */}
+      {/* 6. Location Map & Contacts */}
       <section id="contact" className="section-padding" style={{ backgroundColor: 'var(--bg-white)', borderTop: '1px solid rgba(13, 74, 59, 0.05)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '56px' }}>
@@ -509,12 +485,12 @@ export default function Home() {
                 </div>
 
                 <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-                  <Link href="/book" className="btn btn-primary">
+                  <a href="#book" className="btn btn-primary">
                     Book Appointment <span className="btn-icon-right">→</span>
-                  </Link>
-                  <Link href="/contact" className="btn btn-outline-primary">
+                  </a>
+                  <a href="#contact" className="btn btn-outline-primary">
                     Visit / Send Message
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>

@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 export default function Doctors() {
   const doctorsList = [
     {
@@ -10,7 +8,7 @@ export default function Doctors() {
       description: 'Senior joint replacement specialist with extensive experience in knee/hip arthroplasties, complex limb fractures, pediatric bone trauma care, and sports ligamental reconstruction.',
       schedule: 'Mon - Sat: 10:00 AM - 04:00 PM',
       color: '#4f46e5',
-      linkPath: '/book?doctor=Dr.%20Anil%20Verma',
+      linkPath: '#book?doctor=Dr.%20Anil%20Verma',
       svgAvatar: (
         <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="100%" height="100%" fill="#e0e7ff"/>
@@ -34,7 +32,7 @@ export default function Doctors() {
       description: 'Expertise in high-risk pregnancy diagnostics, painless labor management, laparoscopy surgeries, pre-pregnancy counseling, and comprehensive fetal monitoring solutions.',
       schedule: 'Mon - Sat: 11:00 AM - 05:00 PM',
       color: '#0d4a3b',
-      linkPath: '/book?doctor=Dr.%20Priya%20Sharma',
+      linkPath: '#book?doctor=Dr.%20Priya%20Sharma',
       svgAvatar: (
         <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="100%" height="100%" fill="var(--primary-light)"/>
@@ -56,7 +54,7 @@ export default function Doctors() {
       description: 'Leads our multi-bed ICU/HDU critical care teams. Specializes in managing severe septic shock, acute respiratory distress syndrome, cardiac failures, and multi-organ dysfunctions.',
       schedule: 'Mon - Sat: 09:00 AM - 02:00 PM (Emergency 24x7)',
       color: '#0284c7',
-      linkPath: '/book?doctor=Dr.%20Rakesh%20Singh',
+      linkPath: '#book?doctor=Dr.%20Rakesh%20Singh',
       svgAvatar: (
         <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="100%" height="100%" fill="#e0f2fe"/>
@@ -124,9 +122,9 @@ export default function Doctors() {
                     <span><strong>Hours:</strong> {doc.schedule}</span>
                   </div>
                   
-                  <Link href={doc.linkPath} className="btn btn-primary" style={{ width: '100%', padding: '10px 16px', borderRadius: '30px', fontSize: '0.85rem' }}>
+                  <a href={doc.linkPath} className="btn btn-primary" style={{ width: '100%', padding: '10px 16px', borderRadius: '30px', fontSize: '0.85rem', textAlign: 'center' }}>
                     Schedule Consultation
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>

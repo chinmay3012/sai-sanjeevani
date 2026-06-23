@@ -1,21 +1,16 @@
-'use client';
-
 import { useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
-export default function Header() {
-  const pathname = usePathname();
+export default function Header({ currentHash }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Services', path: '/services' },
-    { name: 'Doctors', path: '/doctors' },
-    { name: 'Ayushman Bharat', path: '/ayushman-bharat' },
-    { name: 'Gallery', path: '/gallery' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Home', path: '#' },
+    { name: 'About', path: '#about' },
+    { name: 'Services', path: '#services' },
+    { name: 'Doctors', path: '#doctors' },
+    { name: 'Ayushman Bharat', path: '#ayushman-bharat' },
+    { name: 'Gallery', path: '#gallery' },
+    { name: 'Contact', path: '#contact' },
   ];
 
   const toggleMobileMenu = () => {
@@ -46,7 +41,7 @@ export default function Header() {
       <header className="main-header">
         <div className="container header-container">
           {/* Logo */}
-          <Link href="/" className="logo-link" onClick={closeMobileMenu}>
+          <a href="#" className="logo-link" onClick={closeMobileMenu}>
             <div className="logo-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 21C12 21 20 16 20 10C20 5 16 3 12 3C8 3 4 5 4 10C4 16 12 21 12 21Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -58,36 +53,36 @@ export default function Header() {
               <h2>Sai Sanjeevani</h2>
               <p>Hospital • Sitapur</p>
             </div>
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <nav>
             <ul className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
               {navItems.map((item) => {
-                const isActive = pathname === item.path;
+                const isActive = currentHash === item.path;
                 return (
                   <li key={item.name}>
-                    <Link
+                    <a
                       href={item.path}
                       className={`nav-link ${isActive ? 'nav-link-active' : ''}`}
                       onClick={closeMobileMenu}
                     >
                       {item.name}
-                    </Link>
+                    </a>
                   </li>
                 );
               })}
               {/* Mobile Booking Button */}
               {mobileMenuOpen && (
                 <li style={{ marginTop: '24px', width: '100%' }}>
-                  <Link
-                    href="/book"
+                  <a
+                    href="#book"
                     className="btn btn-primary"
                     style={{ width: '100%' }}
                     onClick={closeMobileMenu}
                   >
                     Book Appointment
-                  </Link>
+                  </a>
                 </li>
               )}
             </ul>
@@ -101,9 +96,9 @@ export default function Header() {
               </svg>
               <span>8528422644</span>
             </a>
-            <Link href="/book" className="btn btn-primary">
+            <a href="#book" className="btn btn-primary">
               Book Appointment
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Toggle Button */}

@@ -1,7 +1,4 @@
-'use client';
-
 import { useState } from 'react';
-import Link from 'next/link';
 import { db } from '@/lib/db';
 
 export default function Contact() {

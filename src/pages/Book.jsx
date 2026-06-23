@@ -1,8 +1,4 @@
-'use client';
-
 import { useState, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
-import Link from 'next/link';
 import { db } from '@/lib/db';
 
 const departments = [
@@ -31,8 +27,8 @@ const timeSlots = [
   '04:00 PM - 05:00 PM'
 ];
 
-function BookingForm() {
-  const searchParams = useSearchParams();
+function BookingForm({ search }) {
+  const searchParams = new URLSearchParams(search);
   
   const [formData, setFormData] = useState({
     patientName: '',
@@ -64,7 +60,7 @@ function BookingForm() {
         }));
       }
     }
-  }, [searchParams]);
+  }, [search]);
 
   // Adjust Doctor selection based on Department selection
   const handleDepartmentChange = (e) => {
@@ -130,7 +126,7 @@ function BookingForm() {
   };
 
   return (
-    <div className="container" style={{ maxWidth: '650px' }}>
+    <div className="container" style={{ maxWidth: '650px', width: '100%' }}>
       <div style={{
         backgroundColor: 'var(--bg-white)',
         padding: '40px',
@@ -331,7 +327,7 @@ function BookingForm() {
   );
 }
 
-export default function Book() {
+export default function Book({ search }) {
   return (
     <div className="section-padding" style={{ backgroundColor: 'var(--bg-cream)', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <Suspense fallback={
@@ -340,7 +336,7 @@ export default function Book() {
           <p>Please wait while we initialize doctor schedules.</p>
         </div>
       }>
-        <BookingForm />
+        <BookingForm search={search} />
       </Suspense>
     </div>
   );

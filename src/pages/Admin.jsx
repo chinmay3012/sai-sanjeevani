@@ -1,9 +1,7 @@
-'use client';
-
 import { useState, useEffect } from 'react';
 import { db } from '@/lib/db';
 
-export default function AdminDashboard() {
+export default function Admin() {
   const [auth, setAuth] = useState({
     username: '',
     password: '',

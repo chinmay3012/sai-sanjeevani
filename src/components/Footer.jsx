@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 export default function Footer() {
   return (
     <footer className="main-footer">
@@ -83,13 +81,13 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Quick Links</h4>
             <ul className="footer-links" style={{ marginTop: '16px' }}>
-              <li><Link href="/about" className="footer-link-item">About Us</Link></li>
-              <li><Link href="/services" className="footer-link-item">Services</Link></li>
-              <li><Link href="/doctors" className="footer-link-item">Our Doctors</Link></li>
-              <li><Link href="/ayushman-bharat" className="footer-link-item">Ayushman Bharat</Link></li>
-              <li><Link href="/book" className="footer-link-item">Book Appointment</Link></li>
-              <li><Link href="/contact" className="footer-link-item">Contact</Link></li>
-              <li><Link href="/admin" className="footer-link-item">Staff Login</Link></li>
+              <li><a href="#about" className="footer-link-item">About Us</a></li>
+              <li><a href="#services" className="footer-link-item">Services</a></li>
+              <li><a href="#doctors" className="footer-link-item">Our Doctors</a></li>
+              <li><a href="#ayushman-bharat" className="footer-link-item">Ayushman Bharat</a></li>
+              <li><a href="#book" className="footer-link-item">Book Appointment</a></li>
+              <li><a href="#contact" className="footer-link-item">Contact</a></li>
+              <li><a href="#admin" className="footer-link-item">Staff Login</a></li>
             </ul>
           </div>
         </div>

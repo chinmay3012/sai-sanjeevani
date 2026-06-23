@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 export default function About() {
   return (
     <div className="section-padding" style={{ minHeight: '80vh' }}>
@@ -23,9 +21,9 @@ export default function About() {
             <p style={{ fontSize: '1.05rem', marginBottom: '24px', lineHeight: '1.7' }}>
               Our mission is simple: <strong>To provide healing hands and trusted care with clinical excellence and absolute integrity.</strong> We believe that quality healthcare is a fundamental right, which is why we are officially empaneled under the Ayushman Bharat PM-JAY scheme to offer cashless hospitalisation for secondary and tertiary care.
             </p>
-            <Link href="/contact" className="btn btn-primary">
+            <a href="#contact" className="btn btn-primary">
               Contact Our Helpdesk <span className="btn-icon-right">→</span>
-            </Link>
+            </a>
           </div>
 
           <div style={{ backgroundColor: 'var(--primary-light)', padding: '40px', borderRadius: 'var(--border-radius-lg)', border: '1px solid rgba(13, 74, 59, 0.08)' }}>

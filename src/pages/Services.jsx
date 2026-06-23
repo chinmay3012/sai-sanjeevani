@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 export default function Services() {
   const departments = [
     {
@@ -88,12 +86,12 @@ export default function Services() {
   ];
 
   const opdSchedules = [
-    { name: 'Orthopedic & Joint Surgery Clinic', doctor: 'Dr. Anil Verma', location: 'New OPD Building, Ground Floor (D Block)', phone: '8528422644 (Ext 102)', hours: '10:00 AM - 04:00 PM', link: '/book?doctor=Dr.%20Anil%20Verma' },
-    { name: 'Gynecology & Antenatal Suite', doctor: 'Dr. Priya Sharma', location: 'New OPD Building, 1st Floor (C Block)', phone: '8528422644 (Ext 105)', hours: '11:00 AM - 05:00 PM', link: '/book?doctor=Dr.%20Priya%20Sharma' },
-    { name: 'General Medicine & Diabetes Clinic', doctor: 'Dr. Rakesh Singh', location: 'New OPD Building, 2nd Floor (B Block)', phone: '8528422644 (Ext 101)', hours: '09:00 AM - 02:00 PM', link: '/book?doctor=Dr.%20Rakesh%20Singh' },
-    { name: 'Anesthesiology & Pain Management', doctor: 'On-Call Anesthetist', location: 'Main OT Complex, D Block Ground Floor', phone: '8528422644 (Ext 109)', hours: 'Available 24x7', link: '/book?doctor=Any%20Available%20Specialist' },
-    { name: 'Pediatrics & Immunization clinic', doctor: 'Visiting Consultant', location: 'Maternal Wing, 1st Floor (A Block)', phone: '8429922744 (Ext 202)', hours: '04:00 PM - 06:00 PM', link: '/book?doctor=Any%20Available%20Specialist' },
-    { name: 'Physiotherapy & Rehabilitation', doctor: 'Rehab Specialist', location: 'OPD Extension Wing, Ground Floor', phone: '8429922744 (Ext 208)', hours: '09:00 AM - 05:00 PM', link: '/book?doctor=Any%20Available%20Specialist' }
+    { name: 'Orthopedic & Joint Surgery Clinic', doctor: 'Dr. Anil Verma', location: 'New OPD Building, Ground Floor (D Block)', phone: '8528422644 (Ext 102)', hours: '10:00 AM - 04:00 PM', link: '#book?doctor=Dr.%20Anil%20Verma' },
+    { name: 'Gynecology & Antenatal Suite', doctor: 'Dr. Priya Sharma', location: 'New OPD Building, 1st Floor (C Block)', phone: '8528422644 (Ext 105)', hours: '11:00 AM - 05:00 PM', link: '#book?doctor=Dr.%20Priya%20Sharma' },
+    { name: 'General Medicine & Diabetes Clinic', doctor: 'Dr. Rakesh Singh', location: 'New OPD Building, 2nd Floor (B Block)', phone: '8528422644 (Ext 101)', hours: '09:00 AM - 02:00 PM', link: '#book?doctor=Dr.%20Rakesh%20Singh' },
+    { name: 'Anesthesiology & Pain Management', doctor: 'On-Call Anesthetist', location: 'Main OT Complex, D Block Ground Floor', phone: '8528422644 (Ext 109)', hours: 'Available 24x7', link: '#book?doctor=Any%20Available%20Specialist' },
+    { name: 'Pediatrics & Immunization clinic', doctor: 'Visiting Consultant', location: 'Maternal Wing, 1st Floor (A Block)', phone: '8429922744 (Ext 202)', hours: '04:00 PM - 06:00 PM', link: '#book?doctor=Any%20Available%20Specialist' },
+    { name: 'Physiotherapy & Rehabilitation', doctor: 'Rehab Specialist', location: 'OPD Extension Wing, Ground Floor', phone: '8429922744 (Ext 208)', hours: '09:00 AM - 05:00 PM', link: '#book?doctor=Any%20Available%20Specialist' }
   ];
 
   return (
@@ -150,9 +148,9 @@ export default function Services() {
                   <p style={{ fontSize: '1.1rem', marginBottom: '24px', lineHeight: '1.6' }}>{dept.description}</p>
                   
                   <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-                    <Link href="/book" className="btn btn-primary">
+                    <a href="#book" className="btn btn-primary">
                       Book Department Appointment
-                    </Link>
+                    </a>
                   </div>
                 </div>
 
@@ -216,9 +214,9 @@ export default function Services() {
                       📞 {schedule.phone}
                     </td>
                     <td style={{ textAlign: 'center' }}>
-                      <Link href={schedule.link} className="opd-btn-book">
+                      <a href={schedule.link} className="opd-btn-book">
                         Book Slot <span>→</span>
-                      </Link>
+                      </a>
                     </td>
                   </tr>
                 ))}

@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 export default function AyushmanBharat() {
   return (
     <div style={{ backgroundColor: 'var(--bg-cream)', minHeight: '80vh' }}>
@@ -23,9 +21,9 @@ export default function AyushmanBharat() {
                 <a href="tel:8528422644" className="btn btn-primary" style={{ backgroundColor: 'var(--bg-white)', color: 'var(--primary-color)' }}>
                   📞 Call Helpdesk: 8528422644
                 </a>
-                <Link href="/book" className="btn btn-outline-white">
+                <a href="#book" className="btn btn-outline-white">
                   Book Appointment <span className="btn-icon-right">→</span>
-                </Link>
+                </a>
               </div>
             </div>
             
