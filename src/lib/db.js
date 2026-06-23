@@ -1,4 +1,6 @@
-// Client-side Database Helper using LocalStorage
+// NOTE: PURE CLIENT-SIDE APPLICATION (NO ACTIVE BACKEND SERVER/DATABASE IS RUNNING OR REQUIRED)
+// All persistent operations (booking appointments, messaging, admin logins) are handled 
+// entirely in-browser using client-side localStorage.
 const STORAGE_KEY = 'sanjeevani_db';
 
 const defaultSeedData = {
