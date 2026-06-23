@@ -55,10 +55,8 @@ export default function Contact() {
         <div className="grid-2" style={{ gap: '50px' }}>
           {/* Left Column: Direct Info & Map */}
           <div>
-            <div style={{
+            <div className="contact-info-card" style={{
               backgroundColor: 'var(--bg-white)',
-              padding: '36px',
-              borderRadius: 'var(--border-radius-lg)',
               boxShadow: 'var(--shadow-sm)',
               border: '1px solid rgba(13, 74, 59, 0.05)',
               marginBottom: '32px'
@@ -112,10 +110,8 @@ export default function Contact() {
 
           {/* Right Column: Contact Inquiry Form */}
           <div>
-            <div style={{
+            <div className="contact-form-card" style={{
               backgroundColor: 'var(--bg-white)',
-              padding: '40px',
-              borderRadius: 'var(--border-radius-lg)',
               boxShadow: 'var(--shadow-sm)',
               border: '1px solid rgba(13, 74, 59, 0.05)'
             }}>

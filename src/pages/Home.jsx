@@ -456,7 +456,7 @@ export default function Home() {
 
           <div className="grid-2">
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <div className="card" style={{ padding: '40px', border: '1px solid rgba(13, 74, 59, 0.08)', backgroundColor: 'var(--bg-cream)' }}>
+              <div className="card contact-details-card" style={{ border: '1px solid rgba(13, 74, 59, 0.08)', backgroundColor: 'var(--bg-cream)' }}>
                 <h3 style={{ fontSize: '1.6rem', marginBottom: '20px' }}>Sai Sanjeevani Hospital</h3>
                 
                 <div className="footer-contact-info" style={{ gap: '20px', marginBottom: '32px' }}>

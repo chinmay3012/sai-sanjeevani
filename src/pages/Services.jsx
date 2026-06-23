@@ -113,17 +113,9 @@ export default function Services() {
             return (
               <div
                 key={index}
+                className="service-detail-card"
                 style={{
-                  display: 'flex',
                   flexDirection: isEven ? 'row' : 'row-reverse',
-                  gap: '40px',
-                  alignItems: 'center',
-                  flexWrap: 'wrap',
-                  backgroundColor: 'var(--bg-white)',
-                  padding: '40px',
-                  borderRadius: 'var(--border-radius-lg)',
-                  boxShadow: 'var(--shadow-sm)',
-                  border: '1px solid rgba(13, 74, 59, 0.04)'
                 }}
               >
                 {/* Left Side: Detail */}
@@ -155,7 +147,7 @@ export default function Services() {
                 </div>
 
                 {/* Right Side: Procedures list */}
-                <div style={{ flex: '1 1 400px', backgroundColor: 'var(--bg-cream)', padding: '32px', borderRadius: 'var(--border-radius-md)', border: '1px solid rgba(13, 74, 59, 0.06)' }}>
+                <div className="procedure-list-card" style={{ flex: '1 1 400px' }}>
                   <h4 style={{ color: 'var(--primary-color)', fontSize: '1.1rem', marginBottom: '16px', borderBottom: '1px solid rgba(13, 74, 59, 0.1)', paddingBottom: '10px' }}>
                     Key Operations & Treatments:
                   </h4>

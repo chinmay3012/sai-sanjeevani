@@ -26,7 +26,7 @@ export default function About() {
             </a>
           </div>
 
-          <div style={{ backgroundColor: 'var(--primary-light)', padding: '40px', borderRadius: 'var(--border-radius-lg)', border: '1px solid rgba(13, 74, 59, 0.08)' }}>
+          <div className="about-values-card" style={{ backgroundColor: 'var(--primary-light)', border: '1px solid rgba(13, 74, 59, 0.08)' }}>
             <h3 style={{ fontSize: '1.4rem', marginBottom: '24px', color: 'var(--primary-color)' }}>Our Core Values</h3>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '24px' }}>
               <li>
@@ -49,19 +49,19 @@ export default function About() {
         <div style={{ borderTop: '1px solid rgba(13, 74, 59, 0.1)', paddingTop: '60px' }}>
           <h2 style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '40px' }}>Hospital Facilities & Capacity</h2>
           <div className="grid-3" style={{ gap: '24px' }}>
-            <div className="card" style={{ padding: '24px' }}>
+            <div className="card about-capacity-card">
               <div style={{ fontSize: '2.5rem', marginBottom: '16px' }}>🛌</div>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '12px' }}>Critical Care Unit</h3>
               <p style={{ fontSize: '0.95rem' }}>Equipped with advanced multi-channel monitors, central oxygen delivery, ventilators, and dedicated critical care nurses working in 8-hour shifts.</p>
             </div>
             
-            <div className="card" style={{ padding: '24px' }}>
+            <div className="card about-capacity-card">
               <div style={{ fontSize: '2.5rem', marginBottom: '16px' }}>🤰</div>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '12px' }}>Maternity & Labor Suites</h3>
               <p style={{ fontSize: '0.95rem' }}>Comprehensive birthing rooms with fetal monitors, specialized high-risk pregnancy beds, and direct linkage to our neonatal intensive care rooms.</p>
             </div>
 
-            <div className="card" style={{ padding: '24px' }}>
+            <div className="card about-capacity-card">
               <div style={{ fontSize: '2.5rem', marginBottom: '16px' }}>🔪</div>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '12px' }}>Orthopedic OT</h3>
               <p style={{ fontSize: '0.95rem' }}>Ultra-clean laminar airflow operating theater designed specifically for joint replacement surgeries, bone trauma stabilization, and complex arthroplasties.</p>

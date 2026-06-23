@@ -127,10 +127,8 @@ function BookingForm({ search }) {
 
   return (
     <div className="container" style={{ maxWidth: '650px', width: '100%' }}>
-      <div style={{
+      <div className="booking-form-card" style={{
         backgroundColor: 'var(--bg-white)',
-        padding: '40px',
-        borderRadius: 'var(--border-radius-lg)',
         boxShadow: 'var(--shadow-md)',
         border: '1px solid rgba(13, 74, 59, 0.05)',
         margin: '20px 0'

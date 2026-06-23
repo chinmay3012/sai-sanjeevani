@@ -297,19 +297,19 @@ export default function Admin() {
 
         {/* Highlight Statistics */}
         <div className="grid-3" style={{ gap: '20px', marginBottom: '40px' }}>
-          <div className="card" style={{ padding: '24px', backgroundColor: 'var(--bg-white)', borderLeft: '4px solid var(--primary-color)' }}>
+          <div className="card stat-highlight-card" style={{ borderLeft: '4px solid var(--primary-color)' }}>
             <p style={{ fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--text-muted)', margin: '0 0 6px 0' }}>Appointments Pending</p>
             <h2 style={{ fontSize: '2.5rem', color: 'var(--primary-color)', margin: 0 }}>{pendingAppointmentsCount}</h2>
             <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', margin: '8px 0 0 0' }}>Total booked: {data.appointments.length}</p>
           </div>
 
-          <div className="card" style={{ padding: '24px', backgroundColor: 'var(--bg-white)', borderLeft: '4px solid var(--accent-color)' }}>
+          <div className="card stat-highlight-card" style={{ borderLeft: '4px solid var(--accent-color)' }}>
             <p style={{ fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--text-muted)', margin: '0 0 6px 0' }}>Unread Inquiries</p>
             <h2 style={{ fontSize: '2.5rem', color: 'var(--accent-color)', margin: 0 }}>{unreadMessagesCount}</h2>
             <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', margin: '8px 0 0 0' }}>Total queries: {data.messages.length}</p>
           </div>
 
-          <div className="card" style={{ padding: '24px', backgroundColor: 'var(--bg-white)', borderLeft: '4px solid var(--secondary-color)' }}>
+          <div className="card stat-highlight-card" style={{ borderLeft: '4px solid var(--secondary-color)' }}>
             <p style={{ fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--text-muted)', margin: '0 0 6px 0' }}>Total Operations</p>
             <h2 style={{ fontSize: '2.5rem', color: 'var(--secondary-color)', margin: 0 }}>
               {data.appointments.filter(a => a.status === 'Confirmed').length}
