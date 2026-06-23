@@ -127,7 +127,7 @@ function BookingForm({ search }) {
 
   return (
     <div className="container" style={{ maxWidth: '650px', width: '100%' }}>
-      <div className="booking-form-card" style={{
+      <div className="booking-form-card animate-on-scroll" style={{
         backgroundColor: 'var(--bg-white)',
         boxShadow: 'var(--shadow-md)',
         border: '1px solid rgba(13, 74, 59, 0.05)',
@@ -151,7 +151,10 @@ function BookingForm({ search }) {
             border: '1px solid #a7f3d0'
           }}>
             <h3 style={{ color: '#065f46', fontSize: '1.2rem', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <span>✓</span> Appointment Confirmed!
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Appointment Confirmed!
             </h3>
             <p style={{ marginBottom: '16px' }}>Your visit request has been successfully registered. Please note your booking summary:</p>
             <div style={{
@@ -196,7 +199,12 @@ function BookingForm({ search }) {
             alignItems: 'center',
             gap: '8px'
           }}>
-            <span>⚠️</span> {status.error}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            {status.error}
           </div>
         )}
 

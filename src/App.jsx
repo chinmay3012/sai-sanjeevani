@@ -24,6 +24,29 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  // Global IntersectionObserver for elements with "animate-on-scroll" class
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      elements.forEach(el => observer.observe(el));
+
+      return () => {
+        elements.forEach(el => observer.unobserve(el));
+      };
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [currentHash]);
+
   // Parse path and search parameters from the hash
   // hash formats: "#", "#about", "#book?doctor=Dr.%20Anil%20Verma"
   const [pathWithHash, search] = currentHash.split('?');

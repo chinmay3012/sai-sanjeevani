@@ -20,8 +20,9 @@ export default function Footer() {
             </div>
             <p>Compassionate care, 24/7 — close to home in Sitapur. Providing modern medical facilities and critical care to our community.</p>
             <div style={{ marginTop: '16px' }}>
-              <span className="badge" style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)', color: 'var(--accent-color)', borderColor: 'rgba(229, 169, 59, 0.3)' }}>
-                🟢 Ayushman Bharat PM-JAY Empaneled
+              <span className="badge" style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)', color: 'var(--accent-color)', borderColor: 'rgba(229, 169, 59, 0.3)', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#4caf50', display: 'inline-block' }}></span>
+                Ayushman Bharat PM-JAY Empaneled
               </span>
             </div>
           </div>

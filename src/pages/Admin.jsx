@@ -171,7 +171,7 @@ export default function Admin() {
   if (!auth.loggedIn) {
     return (
       <div className="section-padding" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f1f5f9' }}>
-        <div className="card" style={{ width: '100%', maxWidth: '440px', padding: 0, overflow: 'hidden', border: 'none', boxShadow: 'var(--shadow-lg)' }}>
+        <div className="card animate-on-scroll" style={{ width: '100%', maxWidth: '440px', padding: 0, overflow: 'hidden', border: 'none', boxShadow: 'var(--shadow-lg)' }}>
           {/* Portal Header */}
           <div style={{ backgroundColor: 'var(--bg-dark-green)', padding: '30px 24px', textAlign: 'center', color: '#ffffff' }}>
             <div className="logo-icon" style={{ backgroundColor: '#ffffff', color: 'var(--primary-color)', margin: '0 auto 12px auto' }}>
@@ -198,7 +198,22 @@ export default function Admin() {
               gap: '8px',
               alignItems: 'flex-start'
             }}>
-              <span style={{ fontSize: '1.1rem' }}>🔑</span>
+              <div style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: 'rgba(13, 74, 59, 0.1)',
+                color: 'var(--primary-color)',
+                width: '32px',
+                height: '32px',
+                borderRadius: '50%',
+                flexShrink: 0
+              }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+              </div>
               <div>
                 <strong>Demo Credentials:</strong><br />
                 Username: <code>admin</code> | Password: <code>sanjeevani123</code>
@@ -218,7 +233,12 @@ export default function Admin() {
                 alignItems: 'center',
                 gap: '6px'
               }}>
-                <span>⚠️</span> {auth.error}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/>
+                  <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                {auth.error}
               </div>
             )}
 
@@ -235,7 +255,12 @@ export default function Admin() {
                     style={{ paddingLeft: '44px' }}
                     required
                   />
-                  <span style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }}>👤</span>
+                  <span style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)', display: 'inline-flex', alignItems: 'center' }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                      <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                  </span>
                 </div>
               </div>
 
@@ -251,7 +276,12 @@ export default function Admin() {
                     style={{ paddingLeft: '44px' }}
                     required
                   />
-                  <span style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }}>🔒</span>
+                  <span style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)', display: 'inline-flex', alignItems: 'center' }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                  </span>
                 </div>
               </div>
 
@@ -286,11 +316,20 @@ export default function Admin() {
             <p style={{ margin: 0 }}>Review schedules, patient queues, and digital queries in real time.</p>
           </div>
           <div style={{ display: 'flex', gap: '12px' }}>
-            <button onClick={fetchDashboardData} className="btn btn-outline-primary" style={{ padding: '10px 20px', fontSize: '0.9rem' }}>
-              🔄 Refresh Data
+            <button onClick={fetchDashboardData} className="btn btn-outline-primary" style={{ padding: '10px 20px', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="23 4 23 10 17 10"/>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+              </svg>
+              Refresh Data
             </button>
-            <button onClick={handleLogout} className="btn btn-secondary" style={{ padding: '10px 20px', fontSize: '0.9rem', backgroundColor: 'var(--secondary-color)' }}>
-              🚪 Log Out
+            <button onClick={handleLogout} className="btn btn-secondary" style={{ padding: '10px 20px', fontSize: '0.9rem', backgroundColor: 'var(--secondary-color)', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                <polyline points="16 17 21 12 16 7"/>
+                <line x1="21" y1="12" x2="9" y2="12"/>
+              </svg>
+              Log Out
             </button>
           </div>
         </div>
@@ -331,10 +370,20 @@ export default function Admin() {
               borderBottom: activeTab === 'appointments' ? '3px solid var(--primary-color)' : '3px solid transparent',
               color: activeTab === 'appointments' ? 'var(--primary-color)' : 'var(--text-muted)',
               cursor: 'pointer',
-              transition: 'var(--transition-fast)'
+              transition: 'var(--transition-fast)',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px'
             }}
           >
-            📋 Appointment Bookings ({data.appointments.length})
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+            Appointment Bookings ({data.appointments.length})
           </button>
           <button
             onClick={() => { setActiveTab('messages'); setSearchTerm(''); setStatusFilter('All'); }}
@@ -347,10 +396,16 @@ export default function Admin() {
               borderBottom: activeTab === 'messages' ? '3px solid var(--primary-color)' : '3px solid transparent',
               color: activeTab === 'messages' ? 'var(--primary-color)' : 'var(--text-muted)',
               cursor: 'pointer',
-              transition: 'var(--transition-fast)'
+              transition: 'var(--transition-fast)',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px'
             }}
           >
-            💬 Patient Inquiries ({data.messages.length})
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            Patient Inquiries ({data.messages.length})
           </button>
         </div>
 
@@ -368,7 +423,10 @@ export default function Admin() {
           marginBottom: '24px'
         }}>
           <div style={{ flex: '1 1 300px', display: 'flex', alignItems: 'center', gap: '8px', border: '1px solid #cbd5e1', borderRadius: '30px', padding: '8px 16px', backgroundColor: 'var(--bg-cream)' }}>
-            <span style={{ fontSize: '1rem' }}>🔍</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--text-muted)' }}>
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
             <input
               type="text"
               placeholder={activeTab === 'appointments' ? 'Search by patient name, phone, doctor...' : 'Search by name, phone, message content...'}
@@ -447,16 +505,57 @@ export default function Admin() {
                         <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>ID: {appt.id.slice(0, 8).toUpperCase()}</div>
                       </td>
                       <td>
-                        <div>📞 {appt.phone}</div>
-                        {appt.email && <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>✉️ {appt.email}</div>}
+                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--primary-color)' }}>
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                          </svg>
+                          {appt.phone}
+                        </div>
+                        {appt.email && (
+                          <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '6px', marginTop: '2px' }}>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--text-muted)' }}>
+                              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                              <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            {appt.email}
+                          </div>
+                        )}
                       </td>
                       <td>
-                        <div>📅 {appt.date}</div>
-                        <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>⏰ {appt.timeSlot}</div>
+                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--primary-color)' }}>
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                          </svg>
+                          {appt.date}
+                        </div>
+                        <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '6px', marginTop: '2px' }}>
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--text-muted)' }}>
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                          </svg>
+                          {appt.timeSlot}
+                        </div>
                       </td>
                       <td>
-                        <div>🏢 {appt.department}</div>
-                        <div style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--primary-color)' }}>👨‍⚕️ {appt.doctor}</div>
+                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--primary-color)' }}>
+                            <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
+                            <line x1="9" y1="22" x2="9" y2="16"/>
+                            <line x1="15" y1="22" x2="15" y2="16"/>
+                            <line x1="9" y1="16" x2="15" y2="16"/>
+                          </svg>
+                          {appt.department}
+                        </div>
+                        <div style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--primary-color)', display: 'flex', alignItems: 'center', gap: '6px', marginTop: '2px' }}>
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--primary-color)' }}>
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="8.5" cy="7" r="4"/>
+                          </svg>
+                          {appt.doctor}
+                        </div>
                       </td>
                       <td>
                         <span className={`status-pill status-${appt.status.toLowerCase()}`}>
@@ -545,10 +644,31 @@ export default function Admin() {
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px', marginBottom: '16px' }}>
                     <div>
                       <h3 style={{ fontSize: '1.25rem', color: 'var(--primary-color)', margin: '0 0 4px 0' }}>{msg.name}</h3>
-                      <div style={{ display: 'flex', gap: '16px', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                        <span>📞 {msg.phone}</span>
-                        {msg.email && <span>✉️ {msg.email}</span>}
-                        <span>📅 Received: {new Date(msg.createdAt).toLocaleString()}</span>
+                      <div style={{ display: 'flex', gap: '16px', fontSize: '0.85rem', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
+                        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                          </svg>
+                          {msg.phone}
+                        </span>
+                        {msg.email && (
+                          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                              <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            {msg.email}
+                          </span>
+                        )}
+                        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                          </svg>
+                          Received: {new Date(msg.createdAt).toLocaleString()}
+                        </span>
                       </div>
                     </div>
                     

@@ -2,7 +2,13 @@ export default function Home() {
   const specialties = [
     {
       title: '24x7 Emergency & Trauma',
-      icon: '🚨',
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+          <line x1="12" y1="9" x2="12" y2="13"></line>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+      ),
       badgeBg: '#ef4444',
       imageBg: 'linear-gradient(135deg, #fee2e2 0%, #fca5a5 100%)',
       features: [
@@ -15,7 +21,14 @@ export default function Home() {
     },
     {
       title: 'Intensive Care Unit (ICU)',
-      icon: '🩺',
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2v10a4 4 0 0 0 8 0V2"></path>
+          <path d="M16 12a4 4 0 0 1-8 0v-5a3 3 0 0 0-6 0v3"></path>
+          <path d="M2 10a2 2 0 0 0 4 0"></path>
+          <path d="M20 22a2 2 0 0 0 4 0"></path>
+        </svg>
+      ),
       badgeBg: '#0d4a3b',
       imageBg: 'linear-gradient(135deg, #dbeae5 0%, #99f6e4 100%)',
       features: [
@@ -28,7 +41,17 @@ export default function Home() {
     },
     {
       title: 'Maternity & High-Risk Pregnancy',
-      icon: '👶',
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M9 12h.01"></path>
+          <path d="M15 12h.01"></path>
+          <path d="M10 16c.5.5 1.5.5 2 0"></path>
+          <path d="M19 6.37a8 8 0 1 0-14 0"></path>
+          <path d="M12 2v2"></path>
+          <path d="m16.2 4.2-1.4 1.4"></path>
+          <path d="m7.8 4.2 1.4 1.4"></path>
+        </svg>
+      ),
       badgeBg: '#e5a93b',
       imageBg: 'linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%)',
       features: [
@@ -41,7 +64,11 @@ export default function Home() {
     },
     {
       title: 'Orthopedic Surgery',
-      icon: '🦴',
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M16.5 15.5a3 3 0 1 0-4-4L6 5.5a2.5 2.5 0 1 0-3.5 3.5L8.5 15a3 3 0 1 0 4 4l6.5-6.5a2.5 2.5 0 1 0 3.5-3.5L16.5 15.5Z"></path>
+        </svg>
+      ),
       badgeBg: '#7e22ce',
       imageBg: 'linear-gradient(135deg, #faf5ff 0%, #e9d5ff 100%)',
       features: [
@@ -54,7 +81,11 @@ export default function Home() {
     },
     {
       title: 'High-Dependency Unit (HDU)',
-      icon: '💖',
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+        </svg>
+      ),
       badgeBg: '#15803d',
       imageBg: 'linear-gradient(135deg, #f0fdf4 0%, #bbf7d0 100%)',
       features: [
@@ -67,7 +98,15 @@ export default function Home() {
     },
     {
       title: 'General Medicine',
-      icon: '🏥',
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 21h18"></path>
+          <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path>
+          <path d="M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"></path>
+          <path d="M10 9h4"></path>
+          <path d="M12 7v4"></path>
+        </svg>
+      ),
       badgeBg: '#0284c7',
       imageBg: 'linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%)',
       features: [
@@ -209,7 +248,7 @@ export default function Home() {
 
             <div className="illustration-container">
               <div className="floating-badge floating-badge-orange" style={{ top: '10px', right: '-10px' }}>
-                <span style={{ fontSize: '1.5rem' }}>⏰</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--secondary-color)', flexShrink: 0 }}><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                 <div>
                   <h4 style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', margin: 0 }}>Always</h4>
                   <p style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--secondary-color)', margin: 0 }}>Open 24x7</p>
@@ -217,7 +256,7 @@ export default function Home() {
               </div>
 
               <div className="floating-badge" style={{ bottom: '20px', left: '-20px', borderLeft: '4px solid var(--primary-color)' }}>
-                <span style={{ fontSize: '1.5rem' }}>🛡️</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--primary-color)', flexShrink: 0 }}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
                 <div>
                   <h4 style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', margin: 0 }}>Approved</h4>
                   <p style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--primary-color)', margin: 0 }}>PM-JAY Empaneled</p>
@@ -280,7 +319,7 @@ export default function Home() {
 
           <div className="services-grid">
             {specialties.map((dept, index) => (
-              <div key={index} className="dept-card">
+              <div key={index} className="dept-card animate-on-scroll">
                 <div className="dept-image-wrap" style={{ background: dept.imageBg }}>
                   <div className="dept-badge-circle" style={{ backgroundColor: dept.badgeBg }}>
                     {dept.icon}
@@ -325,14 +364,15 @@ export default function Home() {
 
           <div className="grid-3" style={{ gap: '24px' }}>
             {doctorsList.map((doc, idx) => (
-              <div key={idx} className="doctor-profile-card">
+              <div key={idx} className="doctor-profile-card animate-on-scroll">
                 <div className="doctor-photo-wrap">
                   {doc.svgAvatar}
                 </div>
 
                 <div className="doctor-card-body">
                   <div className="doctor-badge-tag">
-                    🧬 {doc.specialty}
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '6px', display: 'inline-block', verticalAlign: 'middle' }}><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                    {doc.specialty}
                   </div>
                   
                   <h3>{doc.name}</h3>
@@ -345,7 +385,8 @@ export default function Home() {
                   </p>
 
                   <div className="doctor-experience-tag">
-                    👨‍⚕️ {doc.experience}
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '6px', display: 'inline-block', verticalAlign: 'middle', color: '#b45309' }}><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    {doc.experience}
                   </div>
 
                   <a href={doc.linkPath} className="doctor-card-link">
@@ -375,7 +416,7 @@ export default function Home() {
               
               <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
                 <a href="tel:8528422644" className="btn btn-primary" style={{ backgroundColor: 'var(--bg-white)', color: 'var(--primary-color)' }}>
-                  📞 Call 8528422644
+                  Call 8528422644
                 </a>
                 <a href="#book" className="btn btn-outline-white">
                   Book Appointment <span className="btn-icon-right">→</span>
@@ -385,19 +426,19 @@ export default function Home() {
             
             <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
               <div className="ayushman-four-grid">
-                <div className="ayushman-stat-card">
+                <div className="ayushman-stat-card animate-on-scroll">
                   <h3>₹5L</h3>
                   <p>Cover per family / year</p>
                 </div>
-                <div className="ayushman-stat-card">
+                <div className="ayushman-stat-card animate-on-scroll">
                   <h3>Cashless</h3>
                   <p>At Sai Sanjeevani</p>
                 </div>
-                <div className="ayushman-stat-card">
+                <div className="ayushman-stat-card animate-on-scroll">
                   <h3>All</h3>
                   <p>Listed treatments</p>
                 </div>
-                <div className="ayushman-stat-card">
+                <div className="ayushman-stat-card animate-on-scroll">
                   <h3>PMJAY</h3>
                   <p>Empaneled</p>
                 </div>
@@ -419,22 +460,28 @@ export default function Home() {
           </div>
 
           <div className="timeline-steps-grid">
-            <div className="timeline-step-card">
-              <div className="timeline-step-icon">💳</div>
+            <div className="timeline-step-card animate-on-scroll">
+              <div className="timeline-step-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+              </div>
               <h4>Step 1</h4>
               <h3>Verify eligibility</h3>
               <p>Our PM-JAY desk checks your Ayushman card status, validates identity, and matches your specific treatment package in the government gateway.</p>
             </div>
             
-            <div className="timeline-step-card">
-              <div className="timeline-step-icon">🏥</div>
+            <div className="timeline-step-card animate-on-scroll">
+              <div className="timeline-step-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18"></path><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path><path d="M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"></path></svg>
+              </div>
               <h4>Step 2</h4>
               <h3>Admission & treatment</h3>
               <p>Get admitted and treated by our consultants and clinical specialists. Enjoy zero out-of-pocket costs on covered surgical and ward procedures.</p>
             </div>
 
-            <div className="timeline-step-card">
-              <div className="timeline-step-icon">🪙</div>
+            <div className="timeline-step-card animate-on-scroll">
+              <div className="timeline-step-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="8" cy="8" r="6"></circle><circle cx="18" cy="18" r="4"></circle><path d="M12 18a6 6 0 0 0-6-6"></path></svg>
+              </div>
               <h4>Step 3</h4>
               <h3>Cashless settlement</h3>
               <p>Our billing office coordinates directly with the government scheme for payments. You depart focused entirely on recovery, not paperwork.</p>
@@ -456,12 +503,12 @@ export default function Home() {
 
           <div className="grid-2">
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <div className="card contact-details-card" style={{ border: '1px solid rgba(13, 74, 59, 0.08)', backgroundColor: 'var(--bg-cream)' }}>
+              <div className="card contact-details-card animate-on-scroll" style={{ border: '1px solid rgba(13, 74, 59, 0.08)', backgroundColor: 'var(--bg-cream)' }}>
                 <h3 style={{ fontSize: '1.6rem', marginBottom: '20px' }}>Sai Sanjeevani Hospital</h3>
                 
                 <div className="footer-contact-info" style={{ gap: '20px', marginBottom: '32px' }}>
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                    <span style={{ fontSize: '1.4rem' }}>📍</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--primary-color)', marginTop: '4px', flexShrink: 0 }}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                     <p style={{ color: 'var(--text-dark)', fontSize: '1.05rem', margin: 0 }}>
                       <strong>Address:</strong><br />
                       Plot No. 2, Station Road,<br />
@@ -469,14 +516,14 @@ export default function Home() {
                     </p>
                   </div>
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                    <span style={{ fontSize: '1.4rem' }}>📞</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--primary-color)', marginTop: '4px', flexShrink: 0 }}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                     <p style={{ color: 'var(--text-dark)', fontSize: '1.05rem', margin: 0 }}>
                       <strong>Contact Numbers:</strong><br />
                       8528422644, 8429922744
                     </p>
                   </div>
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                    <span style={{ fontSize: '1.4rem' }}>📧</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--primary-color)', marginTop: '4px', flexShrink: 0 }}><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                     <p style={{ color: 'var(--text-dark)', fontSize: '1.05rem', margin: 0 }}>
                       <strong>Inquiries Email:</strong><br />
                       care@saisanjeevani.in

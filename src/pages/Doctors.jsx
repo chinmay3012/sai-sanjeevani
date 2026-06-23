@@ -84,7 +84,7 @@ export default function Doctors() {
         {/* Doctor Grid */}
         <div className="grid-3" style={{ gap: '30px' }}>
           {doctorsList.map((doc, idx) => (
-            <div key={idx} className="doctor-profile-card">
+            <div key={idx} className="doctor-profile-card animate-on-scroll">
               {/* Doctor Avatar */}
               <div className="doctor-photo-wrap" style={{ height: '280px' }}>
                 {doc.svgAvatar}
@@ -92,8 +92,11 @@ export default function Doctors() {
 
               {/* Doctor Details */}
               <div className="doctor-card-body">
-                <div className="doctor-badge-tag" style={{ color: doc.color }}>
-                  🩺 {doc.specialty}
+                <div className="doctor-badge-tag" style={{ color: doc.color, display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                  </svg>
+                  <span>{doc.specialty}</span>
                 </div>
                 
                 <h3 style={{ fontSize: '1.4rem', marginBottom: '4px' }}>{doc.name}</h3>
@@ -105,8 +108,12 @@ export default function Doctors() {
                   {doc.description}
                 </p>
 
-                <div className="doctor-experience-tag">
-                  💼 {doc.experience}
+                <div className="doctor-experience-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--primary-color)' }}>
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                  </svg>
+                  <span>{doc.experience}</span>
                 </div>
 
                 <div style={{
@@ -118,7 +125,10 @@ export default function Doctors() {
                   gap: '12px'
                 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                    <span>⏰</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--text-muted)' }}>
+                      <circle cx="12" cy="12" r="10"/>
+                      <polyline points="12 6 12 12 16 14"/>
+                    </svg>
                     <span><strong>Hours:</strong> {doc.schedule}</span>
                   </div>
                   
